@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="LibraryPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Entity classes -->
+        <class>table.User</class>
+        <class>table.Book</class>
+        <class>table.Copy</class>
+        <class>table.Borrowing</class>
+        <class>table.Librarian</class>
+        <class>table.Publisher</class>
+
+        <properties>
+            <!-- Database connection settings -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:./db"/>
+            <property name="jakarta.persistence.jdbc.user" value="_db"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+
+            <!-- Hibernate properties -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <!-- Connection settings -->
+            <property name="hibernate.connection.pool_size" value="1"/>
+        </properties>
+    </persistence-unit>
+</persistence>
